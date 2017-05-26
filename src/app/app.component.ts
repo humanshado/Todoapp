@@ -1,21 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { Todo } from '../shared/todo.model';
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { Todo, todoItem } from '../shared/todo.model';
 
 @Component({
   selector: 'todo-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements AfterViewInit {
    model = new Todo();
-   
+   @ViewChild('todoText') todoText;
+
     constructor(){}
 
-    ngOnInit(){
-      console.log(this.model.todoItems);
+    ngAfterViewInit(){
+      // let el = this.todoText.nativeElement;
+      // el.textContent = " ";
     }
 
     getTodoItems(){
       return this.model.todoItems;
+    }
+
+    addTodoItem(newTodo){
+      if(newTodo){
+        this.model.todoItems.push(new todoItem(newTodo));
+      }
+    
+      this.todoText.nativeElement.value = "";
     }
 }

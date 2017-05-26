@@ -13,9 +13,9 @@ export class Todo {
 export class todoItem{
     task :string;
     status :boolean;
-    
-    constructor(task, status){
+
+    constructor(task, status?){
         this.task = task;
-        this.status =status;
+        this.status = status;
     }
 }
