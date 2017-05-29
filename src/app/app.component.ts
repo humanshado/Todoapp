@@ -19,6 +19,7 @@ export class AppComponent implements AfterViewInit {
 
     getTodoItems(){
       return this.model.todoItems;
+      //return this.model.todoItems.filter(todoItem => !todoItem.status);
     }
 
     addTodoItem(newTodo){
