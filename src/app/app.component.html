@@ -1,8 +1,8 @@
 <h2>My Todo List</h2>
 <div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default">All</button>
-  <button type="button" class="btn btn-default">Completed</button>
-  <button type="button" class="btn btn-default">Pending</button>
+  <button type="button" class="btn btn-default" (click) = "switchfn($event)">All</button>
+  <button type="button" class="btn btn-default" (click) = "switchfn($event)">Completed</button>
+  <button type="button" class="btn btn-default" (click) = "switchfn($event)">Pending</button>
 </div>
 <hr />
 <p>New Todo</p>
@@ -20,7 +20,7 @@
           <tr><th>Description</th><th>Status</th><th>Remark</th></tr>
         </thead>
         <tbody>
-          <tr *ngFor="let todo of getTodoItems(); let i = index">
+          <tr *ngFor="let todo of todos; let i = index">
             <td><span class="badge">{{ i + 1 }}</span> {{ todo.task }}</td>
             <td><input type="checkbox" [(ngModel)] = "todo.status"></td>
             <td [ngSwitch]="todo.status">

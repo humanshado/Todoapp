@@ -11,11 +11,8 @@ export class Todo {
 }
 
 export class todoItem{
-    task :string;
-    status :boolean;
+    
+    constructor(private task :string, private status? :boolean){}
 
-    constructor(task, status?){
-        this.task = task;
-        this.status = status;
-    }
 }
+

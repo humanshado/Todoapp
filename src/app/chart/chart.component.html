@@ -1,9 +1,19 @@
 <h4 style="padding: 0; text-align: center">Analytics</h4>
+<hr />
 <div style="display: block">
-  <canvas baseChart
+  <div>
+    <h5>Completed Tasks: {{ todosCompleted }}</h5>
+    <h5>Pending Tasks: {{ todosPending }}</h5>
+    <h5>Total Number of Tasks: {{ todosAll }}</h5>
+    <h5><strong> Completed: {{ kpi }}%</strong></h5>
+  </div>
+  <hr />
+  
+  <canvas baseChart #todoChart  *ngIf="doughnutChartData && doughnutChartData.length > 0"
               [data]="doughnutChartData"
               [labels]="doughnutChartLabels"
               [chartType]="doughnutChartType"
               (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)"></canvas>
-</div>
+              (chartClick)="chartClicked($event)">
+  </canvas>
+</div>   
