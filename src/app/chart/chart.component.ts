@@ -10,13 +10,11 @@ import { Todo, todoItem } from '../../shared/todo.model';
 export class ChartComponent implements OnInit {
     @Input() todosCompleted: number;
     @Input() todosPending: number;
-    @Input() todosAll:number = this.todosCompleted + this.todosPending;
-    kpi = Math.floor((this.todosCompleted/this.todosAll)*100)
-
+    @Input() todosAll:number;
+    
   // Doughnut
   doughnutChartLabels:string[] = ['Completed Tasks', 'Pending Tasks'];
-  //public doughnutChartData:number[];
-  doughnutChartData:number[] = [this.todosCompleted, this.todosPending];
+  doughnutChartData:number[];
   doughnutChartType:string = 'doughnut';
 
   constructor() {
@@ -24,8 +22,7 @@ export class ChartComponent implements OnInit {
    }
 
   ngOnInit() {
-    console.log("Messsage From ngInit");
-    this.doughnutChartData = [8,13];
+    console.log(this.todosCompleted)
   }
 
    // events
