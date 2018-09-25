@@ -1,6 +1,5 @@
 <h4 style="padding: 0; text-align: center">Analytics</h4>
 <hr />
-<div style="display: block">
   <div>
     <h5>Completed Tasks: {{ todosCompleted }}</h5>
     <h5>Pending Tasks: {{ todosPending }}</h5>
@@ -8,12 +7,12 @@
     <h5><strong> KPI: {{ (todosCompleted/todosAll)*100 }}%</strong></h5>
   </div>
   <hr />
-
-  <canvas baseChart #todoChart  *ngIf="doughnutChartData && doughnutChartData.length > 0"
-              [data]="doughnutChartData"
-              [labels]="doughnutChartLabels"
-              [chartType]="doughnutChartType"
-              (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)">
-  </canvas>
+<div style="display: block" *ngIf="doughnutChartData.length > 0">
+    <canvas baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+    </canvas>
 </div>

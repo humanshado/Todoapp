@@ -1,6 +1,5 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Todo, todoItem } from '../models/todo.model';
-import { ChartComponent } from './chart/chart.component';
 import { DataService } from 'services/data.service';
 
 @Component({
@@ -8,7 +7,7 @@ import { DataService } from 'services/data.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnChanges, OnInit{
     todos;
     todosCompleted: number;
     todosPending: number;
@@ -25,14 +24,17 @@ export class AppComponent implements OnInit{
         })
     }
 
+    ngOnChanges(){
+
+    }
 
     switchTodos(e){
       if(e.target.textContent === "Completed"){
-        this.todos = this.todos.filter(todoItem => todoItem.status);
+        this.todos = this.model.todoItems.filter(todoItem => todoItem.status);
       }else if(e.target.textContent === "Pending"){
-        this.todos = this.todos.filter(todoItem => !todoItem.status);
+        this.todos = this.model.todoItems.filter(todoItem => !todoItem.status);
       }else{
-        this.todos;
+        this.todos = this.model.todoItems;
       }
     }
 

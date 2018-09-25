@@ -8,7 +8,10 @@ export class Todo {
             new todoItem("Clean the backyard", true),
             new todoItem("Book appointment with dentist", false),
             new todoItem("Go out for jogging to the park", true),
-            new todoItem("Renew Gym membership", false)
+            new todoItem("Renew Gym membership", false),
+            new todoItem("Pay property taxes for current month", false),
+            new todoItem("Mow the backyard garden", false),
+            new todoItem("Visit my Aunt in Abuja", false)
         ]
     }
 }

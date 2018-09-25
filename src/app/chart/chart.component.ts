@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Todo, todoItem } from '../../models/todo.model';
+//import { Todo, todoItem } from '../../models/todo.model';
 
 
 @Component({
@@ -13,19 +13,22 @@ export class ChartComponent implements OnInit {
     todosPending: number;
     todosAll: number;
 
-  // Doughnut
-  doughnutChartLabels:string[] = ['Completed Tasks', 'Pending Tasks'];
-  doughnutChartData:number[];
-  doughnutChartType:string = 'doughnut';
-
   constructor() {}
 
   ngOnInit() {
-    console.log(this.todos);
+    console.log(this.todos.length);
     this.todosCompleted = this.todos.filter(todo => todo.status).length
     this.todosPending = this.todos.filter(todo => !todo.status).length
     this.todosAll = this.todos.length
+
+    this.doughnutChartData = [this.todosPending, this.todosCompleted]
+
   }
+
+  // Doughnut
+  public doughnutChartLabels: string[] = ['Pending Tasks', 'Completed Tasks']
+  public doughnutChartData: number[];
+  public doughnutChartType: string = 'doughnut';
 
    // events
   public chartClicked(e:any):void {
