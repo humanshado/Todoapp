@@ -1,8 +1,8 @@
 <h2>My Todo List</h2>
 <div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default" (click) = "switchfn($event)">All</button>
-  <button type="button" class="btn btn-default" (click) = "switchfn($event)">Completed</button>
-  <button type="button" class="btn btn-default" (click) = "switchfn($event)">Pending</button>
+  <button type="button" class="btn btn-default" (click) = "switchTodos($event)">All</button>
+  <button type="button" class="btn btn-default" (click) = "switchTodos($event)">Completed</button>
+  <button type="button" class="btn btn-default" (click) = "switchTodos($event)">Pending</button>
 </div>
 <hr />
 <p>New Todo</p>
@@ -33,7 +33,7 @@
 
   </div><!--add new todo-->
   <div class="col-md-4 col-lg-4">
-    <app-chart [todosCompleted]="todosCompleted" [todosPending]="todosPending" [todosAll]="todosAll"></app-chart>   
+    <app-chart [todos]="todos"></app-chart>
   </div><!--kpi chart-->
   <br><br>
 </div> <!--row-->

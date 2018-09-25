@@ -5,10 +5,10 @@
     <h5>Completed Tasks: {{ todosCompleted }}</h5>
     <h5>Pending Tasks: {{ todosPending }}</h5>
     <h5>Total Number of Tasks: {{ todosAll }}</h5>
-    <h5><strong> Completed: {{ (todosCompleted/todosAll)*100 }}%</strong></h5>
+    <h5><strong> KPI: {{ (todosCompleted/todosAll)*100 }}%</strong></h5>
   </div>
   <hr />
-  
+
   <canvas baseChart #todoChart  *ngIf="doughnutChartData && doughnutChartData.length > 0"
               [data]="doughnutChartData"
               [labels]="doughnutChartLabels"
@@ -16,4 +16,4 @@
               (chartHover)="chartHovered($event)"
               (chartClick)="chartClicked($event)">
   </canvas>
-</div>   
+</div>

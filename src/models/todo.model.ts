@@ -7,12 +7,14 @@ export class Todo {
             new todoItem("Take out the trash", true),
             new todoItem("Clean the backyard", true),
             new todoItem("Book appointment with dentist", false),
-            new todoItem("Go out for jogging to the park", true)]
+            new todoItem("Go out for jogging to the park", true),
+            new todoItem("Renew Gym membership", false)
+        ]
     }
 }
 
 //defining todoItem class
-export class todoItem{
+export class todoItem {
     constructor(private task :string, private status? :boolean){}
 }
 
